@@ -11,6 +11,14 @@ Team::Team(Character *leader)
     this->warriors.push_back(leader);
 }
 
+
+// Team::~Team()
+// {
+//      for(size_t i = 0; i < this->warriors.size(); i++)
+//     {
+//         delete this->warriors.at(i);
+//     }
+// }
 // Add a Character to the team
 void Team::add(Character *chr)
 {
@@ -24,6 +32,8 @@ void Team::add(Character *chr)
     chr->in_team = true;
 }
 
+
+// attack another team
 void Team::attack(Team *enemy_team)
 {
     if(this->stillAlive() == 0)
@@ -37,8 +47,6 @@ void Team::attack(Team *enemy_team)
     if (this->leader->isAlive() == false)
         this->leader = find_closest_enemy(this);
     Character *target = this->find_closest_enemy(enemy_team);
-    if(enemy_team->stillAlive() == 0)
-        return;
     for(size_t i = 0; i < this->warriors.size(); i++)
     {
         if(enemy_team->stillAlive() == 0)
@@ -128,4 +136,21 @@ int Team::stillAlive()
 
 void Team::print()
 {
+    // print all cowboys
+    for(size_t i = 0; i < this->warriors.size(); i++)
+    {
+        if(this->warriors.at(i)->type == 1)
+        {
+            std::cout << this->warriors.at(i)->print() << std::endl;
+        }
+    }
+
+    // print all ninjas
+    for(size_t i = 0; i < this->warriors.size(); i++)
+    {
+        if(this->warriors.at(i)->type == 2)
+        {
+            std::cout << this->warriors.at(i)->print() << std::endl;
+        }
+    }
 }

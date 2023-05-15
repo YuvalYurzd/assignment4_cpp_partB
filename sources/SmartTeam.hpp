@@ -12,6 +12,9 @@ class SmartTeam : public Team
         // Overridden functions
         void attack(Team *enemy_team) override;
         void print() override;
+        Character* find_target_for_ninja(Ninja *n, Team *enemy_team);
+        Character* find_target_for_cowboy(Team *enemy_team);
+
 };
 
 #endif

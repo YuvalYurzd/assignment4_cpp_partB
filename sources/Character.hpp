@@ -16,6 +16,8 @@ class Character
 
         Character();
         Character(const Point &pnt, int _hp, std::string name);
+        // Destructor.
+        virtual ~Character() = default;
 
         virtual bool isAlive();
         virtual double distance(Character *chr);

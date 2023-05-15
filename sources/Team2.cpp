@@ -1,5 +1,13 @@
 #include "Team2.hpp"
 
+// Team2::~Team2()
+// {
+//     for(size_t i = 0; i < this->warriors.size(); i++)
+//     {
+//         delete this->warriors.at(i);
+//     }
+// }
+
 void Team2::attack(Team *enemy_team)
 {
     if(this->stillAlive() == 0)
@@ -64,7 +72,11 @@ Character* Team2::find_closest_enemy(Team *enemy_team)
     }
     return nullptr;
 }
+
 void Team2::print()
 {
-    
+    for(size_t i =0; i < this->warriors.size(); i++)
+    {
+        std::cout << this->warriors.at(i)->print() << std::endl;
+    }
 }
