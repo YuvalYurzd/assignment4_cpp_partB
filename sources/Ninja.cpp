@@ -37,7 +37,7 @@ std::string Ninja::print()
     string res = "";
     res += "N (" + this->getName() + ")";
     if(this->isAlive() == true)
-        res += this->hp;
+        res += " " + to_string(this->hp);
     res += " (" + to_string(this->getLocation().getX()) + "," + to_string(this->getLocation().getY()) + ")";
     return res;
 }
